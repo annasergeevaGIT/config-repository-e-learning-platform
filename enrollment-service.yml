@@ -21,8 +21,8 @@ spring:
       maximum-pool-size: 12
       connection-timeout: 2000
   flyway:
-    user: ${spring.r2dbc.username}
-    password: ${spring.r2dbc.password}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
     url: jdbc:postgresql://localhost:15432/enrollment_service_db
   kafka:
     bootstrap-servers: localhost:9097
@@ -98,9 +98,6 @@ management:
         server: true
       hikaricp: true # non-reactive
       tomcat: true # non-reactive
-#      netty: true # reactive apps
-#      reactor: true # reactive apps
-#      r2dbc: true # reactive apps
 
 springdoc:
   api-docs:
