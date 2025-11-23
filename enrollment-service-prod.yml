@@ -6,8 +6,8 @@ spring:
     hikari:
       maximum-pool-size: 16
   flyway:
-    user: ${spring.r2dbc.username}
-    password: ${spring.r2dbc.password}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
     url: ${FLYWAY_DB_URL}
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
