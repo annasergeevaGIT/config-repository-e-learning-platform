@@ -17,7 +17,7 @@ server:
     # Tomcat использует пул потоков для обработки входящих соединений: одно соединение - один поток.
     # По умолчанию макимальное количество потоков в пуле - 200.
     threads:
-      max: 32 #200
+      max: 200
       # минимальное количество потоков, которые будут созданы в пуле при старте сервера
       min-spare: 10
 spring:
@@ -42,7 +42,7 @@ spring:
       # поэтому effective_spindle_count = 0
       # Мы также предполагаем, что количество ядер = 4, следовательно maximum-pool-size = 8
       # более подробно тут: https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing
-      maximum-pool-size: 32 # or 12 in real
+      maximum-pool-size: 128 # or 12 in real
   jpa:
     open-in-view: false
     hibernate:
