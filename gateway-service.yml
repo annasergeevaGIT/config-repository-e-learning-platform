@@ -20,7 +20,7 @@ spring:
           default-filters:
             - name: Retry
               args:
-                retries: 5
+                retries: 1 # stress test, otherwise 5
                 methods: GET
                 series: SERVER_ERROR
                 exceptions: java.io.IOException, java.util.concurrent.TimeoutException
@@ -32,8 +32,8 @@ spring:
             - name: RequestRateLimiter
               args:
                 redis-rate-limiter:
-                  replenishRate: 10
-                  burstCapacity: 20
+                  replenishRate: 10000 #1stress test, otherwise 20
+                  burstCapacity: 20000 #stress test, otherwise 20
                   requestedTokens: 1
           routes:
             - id: course-service-route
