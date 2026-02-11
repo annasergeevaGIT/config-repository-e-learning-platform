@@ -20,7 +20,7 @@ spring:
       # max timeout connection to the db 6/12
       max-create-connection-time: 2s
       initial-size: 16
-      max-size: 200 # stress test bottleneck, isolated env
+      max-size: 32 # stress test bottleneck, isolated env
   flyway:
     user: ${spring.r2dbc.username}
     password: ${spring.r2dbc.password}
