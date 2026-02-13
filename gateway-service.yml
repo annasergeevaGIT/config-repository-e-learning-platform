@@ -107,7 +107,7 @@ resilience4j:
         base-config: default
       courseAggregateServiceCircuitBreaker:
         base-config: default
-  timelimiter:
+  limiter:
     configs:
       default:
         timeout-duration: 5s

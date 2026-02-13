@@ -42,7 +42,7 @@ spring:
       # поэтому effective_spindle_count = 0
       # Мы также предполагаем, что количество ядер = 4, следовательно maximum-pool-size = 8
       # более подробно тут: https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing
-      maximum-pool-size: 32
+      maximum-pool-size: 16
   jpa:
     open-in-view: false
     hibernate:
