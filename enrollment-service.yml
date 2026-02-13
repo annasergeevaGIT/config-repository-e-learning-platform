@@ -18,7 +18,7 @@ spring:
     username: user
     password: password
     hikari:
-      maximum-pool-size: 12
+      maximum-pool-size: 32 #12
       connection-timeout: 2000
   flyway:
     user: ${spring.datasource.username}
@@ -66,7 +66,7 @@ external:
   # waitie till retry time for Course Service
   retry-backoff: 100ms
   # amount of tries to connect to Course Service
-  retry-count: 5
+  retry-count: 1 #5
   # factor to minimize the possibility of a scenario where several instances of the Enrollment Service would simultaneously send retries to the Course Service
   retry-jitter: 0.75
   zipkin-endpoint: http://localhost:9411/api/v2/spans

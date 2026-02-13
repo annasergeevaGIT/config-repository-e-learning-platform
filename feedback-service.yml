@@ -42,7 +42,7 @@ spring:
       # поэтому effective_spindle_count = 0
       # Мы также предполагаем, что количество ядер = 4, следовательно maximum-pool-size = 8
       # более подробно тут: https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing
-      maximum-pool-size: 12
+      maximum-pool-size: 32 #12
   jpa:
     open-in-view: false
     hibernate:
@@ -52,7 +52,7 @@ spring:
         # говорим hibernate, чтобы выводимые в логи sql запросы были отфрматированы для удобства чтения
         format_sql: true
         # говорим hibernate показывать sql запросы в логах (для отладки и тестирования)
-        show_sql: true
+        show_sql: false
 
 eureka:
   client:

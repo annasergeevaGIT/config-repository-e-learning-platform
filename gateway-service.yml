@@ -17,24 +17,30 @@ spring:
           httpclient:
             connect-timeout: 3000
             response-timeout: 5s
-          default-filters:
-            - name: Retry
-              args:
-                retries: 5
-                methods: GET
-                series: SERVER_ERROR
-                exceptions: java.io.IOException, java.util.concurrent.TimeoutException
-                backoff:
-                  firstBackoff: 300ms
-                  maxBackoff: 3000ms
-                  factor: 2
-                  basedOnPreviousValue: false
-            - name: RequestRateLimiter
-              args:
-                redis-rate-limiter:
-                  replenishRate: 10
-                  burstCapacity: 20
-                  requestedTokens: 1
+
+            pool: # avoid connection cap bottleneck for the stress test only
+              type: elastic
+              maxConnections: 5000
+              acquireTimeout: 0
+
+          default-filters: [] # REMOVE Retry + RateLimiter
+#            - name: Retry
+#              args:
+#                retries: 5
+#                methods: GET
+#                series: SERVER_ERROR
+#                exceptions: java.io.IOException, java.util.concurrent.TimeoutException
+#                backoff:
+#                  firstBackoff: 300ms
+#                  maxBackoff: 3000ms
+#                  factor: 2
+#                  basedOnPreviousValue: false
+#            - name: RequestRateLimiter
+#              args:
+#                redis-rate-limiter:
+#                  replenishRate: 10
+#                  burstCapacity: 20
+#                  requestedTokens: 1
           routes:
             - id: course-service-route
               uri: lb://course-service
