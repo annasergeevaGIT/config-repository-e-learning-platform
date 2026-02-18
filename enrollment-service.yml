@@ -5,7 +5,7 @@ server:
     connection-timeout: 3s
     keep-alive-timeout: 20s
     threads:
-      max: 1000 #200 for end-to-end test and 1000 for isolated test
+      max: 200 #for end-to-end test and 1000 for isolated test
       min-spare: 10
 
 spring:
