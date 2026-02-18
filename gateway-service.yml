@@ -23,7 +23,7 @@ spring:
               maxConnections: 5000
               acquireTimeout: 0
 
-          default-filters: [] # REMOVE Retry + RateLimiter
+          default-filters: []
 #            - name: Retry
 #              args:
 #                retries: 5
